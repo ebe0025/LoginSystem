@@ -8,7 +8,7 @@ public class MainSystem {
 	
 	public static void main(String[] args) {
 		//id이라는 키값에 따라 맴버들을 map에 저장함
-		Map<String, java.lang.reflect.Member> members = new HashMap()<String, Member>();
+		Map<String, Member> members = new HashMap<String, Member>();
 		Scanner sc = new Scanner(System.in);
 		boolean systemOn = true;
 		
@@ -30,6 +30,9 @@ public class MainSystem {
 				}
 				else
 				{
+					//아이디에 맞는 회원이 존재한다면 아래 기능이 작동
+					
+					
 					System.out.println("로그인할 비밀번호를 입력해주세요.");
 					int password  = sc.nextInt();
 					//해당 아이디에 맞는 회원 객체를 가져옴
@@ -49,12 +52,13 @@ public class MainSystem {
 				break;
 			case 2:
 				System.out.println("회원가입할 아이디를 입력해주세요.");
-				String id  = sc.next();
+				String id1 = sc.next();
 				System.out.println("회원가입할 비밀번호를 입력해주세요.");
 				int password = sc.nextInt();
-				//회원 객체를 생성하고 해당 객체를 map에 저장함
-				Member member = new member(id, password);
-				members.put(id, member);
+				//id와 passaword를 가진 회원 객체 생성
+				Member member = new Member(id1, password);
+				//map에 id의 키값에 맞게 member 객체를 저장
+				members.put(id1, member);
 				break;
 			case 3:
 				System.out.println("로그인 시스템을 종료합니다.");
